@@ -8,6 +8,7 @@ The get_user_model() and create_user() are mainly used
 in the main User model to create and get users
 """
 
+
 def sample_user(email='sample@email.com', password='testpass'):
     """ create sample user """
     return get_user_model().objects.create_user(email, password)
@@ -26,7 +27,6 @@ class ModelTests(TestCase):
 
         self.assertEqual(user.email, email)
         self.assertTrue(user.check_password(password))
-
 
     def test_new_user_email_normalized(self):
         """ test the email of a new user is normalized """
@@ -55,4 +55,3 @@ class ModelTests(TestCase):
         )
 
         self.assertEqual(str(tag), tag.name)
-
