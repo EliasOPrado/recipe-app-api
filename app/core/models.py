@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 
 from django.conf import settings
 
+
 # Create your models here.
 
 
@@ -28,6 +29,7 @@ class UserManager(BaseUserManager):
 
         return user
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     """ custom user model that supporst email instead of username """
     email = models.EmailField(max_length=255, unique=True)
@@ -38,6 +40,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
 
 class Tag(models.Model):
     """ tag to be used for a recipe """

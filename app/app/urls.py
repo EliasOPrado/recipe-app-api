@@ -19,7 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/users/', include('user.urls')),
-
-    # to be deleted
-    # path('', include('staff.urls'))
+    path('api/recipe', include('recipe.urls'))
 ]
