@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'core',
     'user',
+    'recipe',
+    # staff to be deleted
+    # 'staff'
 ]
 
 MIDDLEWARE = [

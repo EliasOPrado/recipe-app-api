@@ -1,10 +1,16 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
+from core import models
+
 """
 The get_user_model() and create_user() are mainly used
-in the main User model to greate and get users
+in the main User model to create and get users
 """
+
+def sample_user(email='sample@email.com', password='testpass'):
+    """ create sample user """
+    return get_user_model().objects.create_user(email, password)
 
 
 class ModelTests(TestCase):
@@ -40,3 +46,13 @@ class ModelTests(TestCase):
                                                          'test123')
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
+
+    def test_tag_str(self):
+        """ test the tag string representation """
+        tag = models.Tag.objects.create(
+            user=sample_user(),
+            name='vegan'
+        )
+
+        self.assertEqual(str(tag), tag.name)
+
