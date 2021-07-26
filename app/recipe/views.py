@@ -55,6 +55,11 @@ class RecipeViewSet(viewsets.ModelViewSet):
         queryset = self.queryset
         if tags:
             tag_ids = self._params_to_ints(tags)
+            """
+            # django syntax filter in a foreignKey
+            # return all the tags id in the tag_ids.
+            # because tags is a foreign key in recipes
+            """
             queryset = queryset.filter(tags__id__in=tag_ids)
         if ingredients:
             ingredient_ids = self._params_to_ints(ingredients)
